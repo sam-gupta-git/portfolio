@@ -22,23 +22,25 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-[#0a0e27] text-[#00ff41] border-t border-[#00ff41]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="flex flex-col items-center justify-center text-center space-y-8">
           {/* Brand Section */}
-          <div className="md:col-span-2">
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold mb-4">Your Name</h3>
-              <p className="text-gray-400 mb-6 max-w-md">
-                Full Stack Developer passionate about creating beautiful, functional, 
-                and user-centered digital experiences.
+              <h3 className="text-2xl font-bold mb-4 font-mono text-glow">
+                <span className="text-[#00ffff]">&gt;</span> Your Name
+              </h3>
+              <p className="text-[#00ff41] mb-6 max-w-md font-mono text-sm opacity-70">
+                <span className="text-[#00ffff]">{"// "}</span>
+                Full Stack Developer passionate about creating minimalistic, functional code
               </p>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 justify-center">
                 {socialLinks.map(({ icon: Icon, href, label }, index) => (
                   <motion.a
                     key={label}
@@ -47,7 +49,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
+                    className="w-10 h-10 bg-transparent border border-[#00ff41] flex items-center justify-center hover:bg-[#00ff41] hover:text-[#0a0e27] transition-colors"
                     aria-label={label}
                   >
                     <Icon size={18} />
@@ -58,22 +60,22 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="max-w-md">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <h4 className="text-lg font-semibold mb-4 font-mono text-[#00ffff]">links[]:</h4>
               <ul className="space-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors"
+                      className="text-[#00ff41] hover:text-[#00ffff] transition-colors font-mono text-sm opacity-80 hover:opacity-100"
                     >
-                      {link.name}
+                      <span className="text-[#00ffff]">&gt;</span> {link.name}
                     </a>
                   </li>
                 ))}
@@ -82,18 +84,18 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="max-w-md">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <div className="space-y-2 text-gray-400">
-                <p>your.email@example.com</p>
-                <p>+1 (555) 123-4567</p>
-                <p>San Francisco, CA</p>
+              <h4 className="text-lg font-semibold mb-4 font-mono text-[#00ffff]">contact{}:</h4>
+              <div className="space-y-2 text-[#00ff41]">
+                <p className="font-mono text-sm opacity-70">email: your.email@example.com</p>
+                <p className="font-mono text-sm opacity-70">phone: +1 (555) 123-4567</p>
+                <p className="font-mono text-sm opacity-70">location: San Francisco, CA</p>
               </div>
             </motion.div>
           </div>
@@ -105,27 +107,28 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+          className="border-t border-[#00ff41]/30 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 Your Name. Made with{' '}
+          <p className="text-[#00ff41] text-sm mb-4 md:mb-0 font-mono opacity-70">
+            <span className="text-[#00ffff]">{"// "}</span>
+            © 2024 Your Name. Built with{' '}
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
-              className="inline-block text-red-500"
+              className="inline-block text-[#00ffff]"
             >
               <Heart size={14} />
             </motion.span>{' '}
-            using Next.js, Tailwind CSS & Framer Motion.
+            using Next.js & Tailwind
           </p>
           
           <motion.button
             onClick={scrollToTop}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
+            className="flex items-center space-x-2 text-[#00ff41] hover:text-[#00ffff] transition-colors font-mono text-sm border border-[#00ff41]/30 px-3 py-1 hover:border-[#00ffff]"
           >
-            <span className="text-sm">Back to top</span>
+            <span>cd ~</span>
             <ArrowUp size={16} />
           </motion.button>
         </motion.div>

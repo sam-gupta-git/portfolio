@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Import monospace font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -11,43 +14,164 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
   line-height: 1.6;
-  color: #333;
+  color: #00ff41;
+  background-color: #0a0e27;
   overflow-x: hidden;
+  text-align: center;
 }
 
-/* Custom scrollbar */
+/* Ensure all text elements are centered by default */
+h1, h2, h3, h4, h5, h6, p, span, div, section, article, main {
+  text-align: center;
+}
+
+/* Override for specific elements that should be left-aligned */
+input, textarea, label {
+  text-align: left;
+}
+
+/* Hacker-style custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #0a0e27;
+  border-left: 1px solid #00ff41;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+  background: #00ff41;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: #00cc33;
 }
 
-/* Smooth animations */
+/* Minimal smooth animations */
 * {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
 }
 
-/* Focus styles */
+/* Hacker-style focus */
 *:focus {
-  outline: 2px solid #3b82f6;
+  outline: 1px solid #00ff41;
   outline-offset: 2px;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
-/* Selection styles */
+/* Terminal-style selection */
 ::selection {
-  background-color: #3b82f6;
-  color: white;
+  background-color: #00ff41;
+  color: #0a0e27;
+}
+
+/* Terminal cursor blink animation */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  animation: blink 1s infinite;
+}
+
+/* Glitch effect for headers */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(transparent, #00ff41, transparent);
+  opacity: 0.1;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Matrix rain effect container */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+/* Terminal box styling */
+.terminal-box {
+  border: 1px solid #00ff41;
+  background: rgba(10, 14, 39, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.1),
+              inset 0 0 20px rgba(0, 255, 65, 0.05);
+}
+
+/* Hacker button style */
+.hacker-btn {
+  border: 1px solid #00ff41;
+  background: transparent;
+  color: #00ff41;
+  padding: 0.75rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hacker-btn:hover {
+  background: #00ff41;
+  color: #0a0e27;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+}
+
+.hacker-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.hacker-btn:hover::before {
+  left: 100%;
+}
+
+/* Text shadows for glow effect */
+.text-glow {
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.8),
+               0 0 20px rgba(0, 255, 65, 0.5),
+               0 0 30px rgba(0, 255, 65, 0.3);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+               0 0 20px rgba(0, 255, 255, 0.5),
+               0 0 30px rgba(0, 255, 255, 0.3);
 }

@@ -106,7 +106,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-[#0a0e27] border-t border-[#00ff41]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -117,19 +117,19 @@ export default function Projects() {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl sm:text-5xl font-bold text-[#00ff41] mb-6 font-mono"
           >
-            My Projects
+            <span className="text-glow">$ ls projects/</span>
           </motion.h2>
           <motion.div
             variants={itemVariants}
-            className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"
+            className="w-32 h-[2px] bg-[#00ff41] mx-auto mb-8 opacity-50"
           />
           <motion.p
             variants={itemVariants}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-[#00ffff] max-w-3xl mx-auto font-mono opacity-80"
           >
-            Here are some of my recent projects that showcase my skills and experience in web development.
+            <span className="text-[#00ff41]">{"// "}</span>Recent projects showcasing my skills in web development
           </motion.p>
         </motion.div>
 
@@ -146,13 +146,13 @@ export default function Projects() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+              className={`px-6 py-2 font-medium transition-all duration-300 font-mono text-sm ${
                 activeCategory === category
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-[#00ff41] text-[#0a0e27] shadow-[0_0_20px_rgba(0,255,65,0.5)] border border-[#00ff41]'
+                  : 'bg-transparent text-[#00ff41] hover:bg-[#00ff41]/10 border border-[#00ff41]/50'
               }`}
             >
-              {category}
+              [{category}]
             </motion.button>
           ))}
         </motion.div>
@@ -160,28 +160,28 @@ export default function Projects() {
         {/* Projects Grid */}
         <motion.div
           variants={containerVariants}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
         >
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+              className="terminal-box overflow-hidden hover:shadow-[0_0_30px_rgba(0,255,65,0.2)] transition-all duration-300"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden">
-                <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                  <span className="text-gray-400 text-sm">Project Image</span>
+                <div className="w-full h-48 bg-gradient-to-br from-[#00ff41]/10 to-[#00ffff]/10 flex items-center justify-center border-b border-[#00ff41]/30">
+                  <span className="text-[#00ff41] text-sm font-mono opacity-50">project_preview.png</span>
                 </div>
                 {project.featured && (
-                  <div className="absolute top-4 left-4 bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-semibold">
-                    Featured
+                  <div className="absolute top-4 left-4 bg-[#00ffff] text-[#0a0e27] px-2 py-1 text-xs font-semibold font-mono">
+                    [FEATURED]
                   </div>
                 )}
                 
                 {/* Overlay with links */}
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
+                <div className="absolute inset-0 bg-[#0a0e27] bg-opacity-0 hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
                   <div className="flex space-x-4">
                     <motion.a
                       href={project.github}
@@ -189,7 +189,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="bg-white text-gray-900 p-3 rounded-full hover:bg-gray-100 transition-colors"
+                      className="bg-transparent border border-[#00ff41] text-[#00ff41] p-3 hover:bg-[#00ff41] hover:text-[#0a0e27] transition-colors"
                     >
                       <Github size={20} />
                     </motion.a>
@@ -199,7 +199,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="bg-white text-gray-900 p-3 rounded-full hover:bg-gray-100 transition-colors"
+                      className="bg-transparent border border-[#00ffff] text-[#00ffff] p-3 hover:bg-[#00ffff] hover:text-[#0a0e27] transition-colors"
                     >
                       <ExternalLink size={20} />
                     </motion.a>
@@ -209,11 +209,11 @@ export default function Projects() {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {project.title}
+                <h3 className="text-xl font-semibold text-[#00ff41] mb-2 font-mono">
+                  <span className="text-[#00ffff]">&gt;</span> {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  {project.description}
+                <p className="text-[#00ff41] mb-4 text-sm leading-relaxed opacity-70 font-mono">
+                  <span className="text-[#00ffff]">{"// "}</span>{project.description}
                 </p>
                 
                 {/* Technologies */}
@@ -221,7 +221,7 @@ export default function Projects() {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs font-medium"
+                      className="bg-[#00ff41]/10 text-[#00ff41] px-2 py-1 border border-[#00ff41]/30 text-xs font-medium font-mono"
                     >
                       {tech}
                     </span>
@@ -236,7 +236,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 bg-gray-900 text-white text-center py-2 px-4 rounded hover:bg-gray-800 transition-colors text-sm font-medium"
+                    className="flex-1 bg-transparent border border-[#00ff41] text-[#00ff41] text-center py-2 px-4 hover:bg-[#00ff41] hover:text-[#0a0e27] transition-colors text-sm font-medium font-mono"
                   >
                     Code
                   </motion.a>
@@ -246,9 +246,9 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm font-medium"
+                    className="flex-1 bg-transparent border border-[#00ffff] text-[#00ffff] text-center py-2 px-4 hover:bg-[#00ffff] hover:text-[#0a0e27] transition-colors text-sm font-medium font-mono"
                   >
-                    Live Demo
+                    Demo
                   </motion.a>
                 </div>
               </div>
@@ -269,9 +269,9 @@ export default function Projects() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center hacker-btn font-mono"
           >
-            View All Projects
+            git clone all_projects
             <Github className="ml-2" size={20} />
           </motion.a>
         </motion.div>

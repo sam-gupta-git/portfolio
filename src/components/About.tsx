@@ -49,7 +49,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-20 bg-[#0a0e27] border-t border-[#00ff41]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -60,65 +60,70 @@ export default function About() {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl sm:text-5xl font-bold text-[#00ff41] mb-6 font-mono"
           >
-            About Me
+            <span className="text-glow">$ cat about.md</span>
           </motion.h2>
           <motion.div
             variants={itemVariants}
-            className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"
+            className="w-32 h-[2px] bg-[#00ff41] mx-auto mb-8 opacity-50"
           />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
           {/* About Text */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-6 text-center mb-12"
           >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-              Passionate Developer & Problem Solver
+            <h3 className="text-2xl font-semibold text-[#00ffff] mb-4 font-mono">
+              <span className="text-[#00ff41]">{"# "}</span>Passionate Developer & Problem Solver
             </h3>
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-[#00ff41] text-lg leading-relaxed opacity-80 font-mono">
+              <span className="text-[#00ffff]">{"/* "}</span>
               I'm a full-stack developer with over 3 years of experience building modern web applications. 
               I love turning complex problems into simple, beautiful, and intuitive solutions.
+              <span className="text-[#00ffff]">{" */"}</span>
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-[#00ff41] text-lg leading-relaxed opacity-80 font-mono">
+              <span className="text-[#00ffff]">{"// "}</span>
               When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
-              or sharing knowledge with the developer community. I believe in continuous learning and staying up-to-date 
-              with the latest industry trends.
+              or sharing knowledge with the developer community.
             </p>
             <div className="pt-6">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Technologies I Work With:</h4>
-              <div className="flex flex-wrap gap-2">
+              <h4 className="text-lg font-semibold text-[#00ffff] mb-4 font-mono">
+                <span className="text-[#00ff41]">const</span> technologies = [
+              </h4>
+              <div className="flex flex-wrap gap-2 justify-center">
                 {technologies.map((tech, index) => (
                   <motion.span
                     key={tech}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ delay: 0.5 + index * 0.05 }}
-                    className="bg-white px-3 py-1 rounded-full text-sm text-gray-700 shadow-sm border"
+                    className="terminal-box px-3 py-1 text-sm text-[#00ff41] font-mono hover:bg-[#00ff41]/10 transition-colors"
                   >
-                    {tech}
+                    '{tech}',
                   </motion.span>
                 ))}
               </div>
+              <p className="text-[#00ffff] font-mono mt-2">];</p>
             </div>
           </motion.div>
 
           {/* Skills */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-6 w-full max-w-2xl terminal-box p-6"
           >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-              Core Skills
+            <h3 className="text-2xl font-semibold text-[#00ffff] mb-6 font-mono">
+              <span className="text-[#00ff41]">function</span> getSkills() {"{"}
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-4 pl-4">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
@@ -128,12 +133,14 @@ export default function About() {
                   className="space-y-2"
                 >
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-700 font-medium">{skill.name}</span>
-                    <span className="text-gray-500 text-sm">{skill.level}%</span>
+                    <span className="text-[#00ff41] font-medium font-mono text-sm">
+                      <span className="text-[#00ffff]">return</span> {skill.name}:
+                    </span>
+                    <span className="text-[#00ffff] text-sm font-mono">{skill.level}%</span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-[#0a0e27] border border-[#00ff41]/30 h-2">
                     <motion.div
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full"
+                      className="bg-[#00ff41] h-full shadow-[0_0_10px_rgba(0,255,65,0.5)]"
                       initial={{ width: 0 }}
                       animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
                       transition={{ duration: 1, delay: 0.8 + index * 0.1 }}
@@ -142,6 +149,7 @@ export default function About() {
                 </motion.div>
               ))}
             </div>
+            <p className="text-[#00ffff] font-mono">{"}"}</p>
           </motion.div>
         </div>
 
@@ -150,10 +158,10 @@ export default function About() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-20"
+          className="mt-20 w-full max-w-4xl mx-auto"
         >
-          <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
-            Experience
+          <h3 className="text-2xl font-semibold text-[#00ffff] mb-8 text-center font-mono">
+            <span className="text-[#00ff41]">ls -l</span> experience/
           </h3>
           <div className="space-y-8">
             {[
@@ -181,14 +189,20 @@ export default function About() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ delay: 1 + index * 0.2 }}
-                className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-600"
+                className="terminal-box p-6 border-l-2 border-[#00ff41] hover:border-[#00ffff] transition-colors"
               >
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                  <h4 className="text-lg font-semibold text-gray-900">{job.title}</h4>
-                  <span className="text-blue-600 font-medium">{job.period}</span>
+                  <h4 className="text-lg font-semibold text-[#00ff41] font-mono">
+                    <span className="text-[#00ffff]">&gt;</span> {job.title}
+                  </h4>
+                  <span className="text-[#00ffff] font-medium font-mono text-sm">[{job.period}]</span>
                 </div>
-                <p className="text-gray-600 font-medium mb-2">{job.company}</p>
-                <p className="text-gray-600">{job.description}</p>
+                <p className="text-[#00ff41] font-medium mb-2 font-mono text-sm opacity-70">
+                  @ {job.company}
+                </p>
+                <p className="text-[#00ff41] font-mono text-sm opacity-60">
+                  <span className="text-[#00ffff]">{"// "}</span>{job.description}
+                </p>
               </motion.div>
             ))}
           </div>
