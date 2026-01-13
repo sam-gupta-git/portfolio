@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 const socialLinks = [
   {
-    name: "GitHub",
+    name: "GITHUB",
     href: "https://github.com/sam-gupta-git",
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="py-32 relative bg-[var(--background-secondary)]/30">
+    <section id="contact" className="py-32 relative">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <motion.div
           ref={ref}
@@ -31,10 +31,10 @@ export default function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-mono text-[var(--accent)] text-lg mb-4">
+          <h2 className="text-[var(--accent)] text-lg mb-4" style={{ fontFamily: "'Courier New', Courier, monospace" }}>
             $ ./connect.sh
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] mb-6">
+          <h3 className="text-4xl md:text-5xl text-[var(--foreground)] mb-6 font-mono" style={{ fontWeight: 400 }}>
             Let&apos;s Connect
           </h3>
           <p className="text-xl text-[var(--foreground-muted)] mb-12 max-w-2xl mx-auto">

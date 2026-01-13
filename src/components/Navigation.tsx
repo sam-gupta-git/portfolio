@@ -52,7 +52,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <motion.a
             href="#home"
-            className="font-mono text-[var(--accent)] font-semibold text-lg"
+            className="font-mono text-[var(--accent)] text-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -74,7 +74,7 @@ export default function Navigation() {
                 }`}
               >
                 <span className="text-[var(--accent-secondary)]">./</span>
-                {item.name}
+                {item.name.toUpperCase()}
                 {activeSection === item.name && (
                   <motion.div
                     layoutId="activeNav"
@@ -94,7 +94,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="text-[var(--background)]/70">$</span> github
+            <span className="text-[var(--background)]/70">$</span> GITHUB
           </motion.a>
         </div>
       </div>

@@ -10,7 +10,7 @@ const experiences = [
     company: "Amazon",
     agency: "Apex Systems",
     location: "Austin, TX",
-    period: "Aug. 2025 – Present",
+    period: "Sep. 2025 – Present",
     description: [
       "Supported engineering teams at Amazon within multiple departments by configuring and deploying dozens of Windows/macOS machines",
       "Resolved 10–15 daily support tickets for desktops and laptops via SIM-T ticketing system, consistently meeting SLA response time targets",
@@ -23,6 +23,7 @@ const experiences = [
   {
     title: "Full Stack Java Developer",
     company: "Revature",
+    agency: "",
     location: "Remote",
     period: "Oct. 2025 – Nov. 2025",
     description: [
@@ -66,7 +67,7 @@ const ExperienceCard = ({
         <div className="bg-[var(--background-secondary)] border border-[var(--border)] rounded p-6 hover:border-[var(--accent)]/50 transition-all group">
           <div className="flex items-start justify-between mb-4">
             <div>
-              <h3 className="text-xl font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">
+              <h3 className="text-xl text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors" style={{ fontWeight: 400 }}>
                 {experience.title}
               </h3>
               <p className="text-[var(--accent)] font-medium">
@@ -165,10 +166,10 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="font-mono text-[var(--accent)] text-lg mb-4">
+          <h2 className="text-[var(--accent)] text-lg mb-4" style={{ fontFamily: "'Courier New', Courier, monospace" }}>
             $ cat experience.log
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-[var(--foreground)]">
+          <h3 className="text-4xl md:text-5xl text-[var(--foreground)] font-mono" style={{ fontWeight: 400 }}>
             Work Experience
           </h3>
         </motion.div>

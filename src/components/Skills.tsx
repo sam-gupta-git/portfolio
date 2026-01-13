@@ -84,10 +84,10 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="font-mono text-[var(--accent)] text-lg mb-4">
+          <h2 className="text-[var(--accent)] text-lg mb-4" style={{ fontFamily: "'Courier New', Courier, monospace" }}>
             $ cat skills.json
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-[var(--foreground)]">
+          <h3 className="text-4xl md:text-5xl text-[var(--foreground)] font-mono" style={{ fontWeight: 400 }}>
             Skills & Technologies
           </h3>
         </motion.div>
@@ -105,17 +105,17 @@ export default function Skills() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-20"
         >
-          <h2 className="font-mono text-[var(--accent)] text-lg mb-4">
+          <h2 className="text-[var(--accent)] text-lg mb-4" style={{ fontFamily: "'Courier New', Courier, monospace" }}>
             $ cat education.txt
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] mb-8">
+          <h3 className="text-4xl md:text-5xl text-[var(--foreground)] mb-8 font-mono" style={{ fontWeight: 400 }}>
             Education
           </h3>
 
           <div className="bg-[var(--background-secondary)] border border-[var(--border)] rounded p-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <h4 className="text-2xl font-semibold text-[var(--foreground)] mb-2">
+                <h4 className="text-2xl text-[var(--foreground)] mb-2" style={{ fontWeight: 400 }}>
                   University of Texas at Austin
                 </h4>
                 <p className="text-[var(--accent)] text-lg font-medium">
@@ -123,7 +123,7 @@ export default function Skills() {
                 </p>
               </div>
               <div className="text-right">
-                <span className="inline-block px-4 py-2 bg-[var(--accent)]/10 text-[var(--accent)] font-mono font-semibold">
+                <span className="inline-block px-4 py-2 bg-[var(--accent)]/10 text-[var(--accent)] font-mono">
                   May 2024
                 </span>
               </div>

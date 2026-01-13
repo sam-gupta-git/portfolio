@@ -6,22 +6,33 @@ import { useRef } from "react";
 
 const projects = [
   {
+    title: "ChargeDrift",
+    description:
+      "A web app that connects to your bank via Plaid, detects recurring charges (subscriptions, memberships), and identifies when merchants have increased their prices over time. Features email/password auth, CSV import, automatic recurring charge detection, and price drift tracking with annualized rates.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "Plaid",
+      "TailwindCSS",
+      "ShadCN UI",
+    ],
+    link: "https://chargedrift.vercel.app/",
+    featured: true,
+  },
+  {
     title: "E-commerce App",
     description:
       "Platform designed to provide users with a seamless online shopping experience. Enables customers to browse products, register as a user, add items to a cart and checkout, add items to a wishlist, view past orders, and list their own items for sale.",
     tech: [
       "Java",
-      "SQL",
-      "Git",
-      "HTML",
-      "TypeScript",
-      "React",
-      "Spring",
       "Spring Boot",
-      "Spring MVC",
-      "Spring Data",
+      "React",
+      "JavaScript",
+      "MySQL",
+      "AWS",
     ],
-    link: "#",
+    link: "https://github.com/revature-sam/ecom-project",
     featured: true,
   },
   {
@@ -33,11 +44,9 @@ const projects = [
       "TailwindCSS",
       "ShadCN UI",
       "Recharts",
-      "Convex",
-      "Prisma",
       "Vercel",
     ],
-    link: "#",
+    link: "https://dataplayground.vercel.app/",
     featured: true,
   },
   {
@@ -45,15 +54,15 @@ const projects = [
     description:
       "Built a website and relational database intended to raise awareness regarding low rates of literacy in Texas counties. Applied a customer-first strategy to designing and building features; consulted with potential users and gathered feedback via GitHub issue tracker with a 100% issue resolution rate.",
     tech: ["React", "Bootstrap", "Postman", "Selenium", "Docker", "AWS"],
-    link: "#",
+    link: "https://www.literatetx.me/",
     featured: true,
   },
   {
     title: "Canvas Board Collaboration App",
     description:
       "Developed a collaborative whiteboard web app where multiple users can create and edit sticky notes and drawings in real time. Implemented drag-and-drop notes, freehand drawing with Konva.js, and synchronized updates across clients using Convex.",
-    tech: ["Next.js", "TailwindCSS", "ShadCN UI", "Konva.js", "Convex", "Vercel"],
-    link: "#",
+    tech: ["SvelteKit", "TailwindCSS", "ShadCN UI", "Konva.js", "Convex", "Vercel"],
+    link: "https://canvasboardapp.vercel.app/",
     featured: false,
   },
 ];
@@ -87,7 +96,7 @@ const ProjectCard = ({
         </div>
 
         <div className="flex items-start justify-between mb-4">
-          <h3 className="text-xl font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors">
+          <h3 className="text-xl text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors" style={{ fontWeight: 400 }}>
             {project.title}
           </h3>
           <a
@@ -139,7 +148,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-32 relative bg-[var(--background-secondary)]/30">
+    <section id="projects" className="py-32 relative">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           ref={ref}
@@ -148,10 +157,10 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="font-mono text-[var(--accent)] text-lg mb-4">
+          <h2 className="text-[var(--accent)] text-lg mb-4" style={{ fontFamily: "'Courier New', Courier, monospace" }}>
             $ ls -la ./projects
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-[var(--foreground)]">
+          <h3 className="text-4xl md:text-5xl text-[var(--foreground)] font-mono" style={{ fontWeight: 400 }}>
             Featured Projects
           </h3>
         </motion.div>
