@@ -1,21 +1,5 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
-import Contact from "@/components/Contact";
+import Portfolio from "@/components/Portfolio";
 
 export default function Home() {
-  return (
-    <>
-      <Navigation />
-      <main>
-        <Hero />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-    </>
-  );
+  return <Portfolio />;
 }

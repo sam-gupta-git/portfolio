@@ -1,11 +1,23 @@
-import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Michroma } from "next/font/google";
 import "./globals.css";
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const michroma = Michroma({
+  variable: "--font-michroma",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "400",
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -20,18 +32,22 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#eef1f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#121719" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${jetbrainsMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="en" className={`${michroma.variable} ${plexMono.variable} ${plexSans.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
